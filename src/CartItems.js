@@ -1,17 +1,7 @@
 import React from "react";
 
 class CartItems extends React.Component{
-    // use constructor for the state of cart items
-    constructor(){
-        super();
-        this.state={
-            price:39999,
-            title:"Iphone",
-            qty:1,
-            Cartimage:'https://cdn-icons-png.flaticon.com/512/644/644458.png'
-        }
-    }
-
+  
     increaseQuantity=()=>{
         console.log("increasing test",this)
         
@@ -55,15 +45,16 @@ class CartItems extends React.Component{
        
     }
     render(){
-        const {price,title,qty, Cartimage}=this.state;
+        console.log('this.props',this.props)
+        const {price,title,qty, Cartimage}=this.props.product;
         return (
             <div className="cart-item" style={{border: '1px solid #777'}}>
                 <div className="left-block">
                     <img  src={Cartimage}  style={styles.image}/>
                 </div>
                 <div className="rigt-block">
-                    <div style={{fontSize:25,fontWeight:"bold"} }>{this.state.title}</div>
-                    <div style={{color:"#777"} }>Rs: {this.state.price}</div>
+                    <div style={{fontSize:25,fontWeight:"bold"} }>{title}</div>
+                    <div style={{color:"#777"} }>Rs: {price}</div>
                     <div style={{color:"#777"} }>Qty: {qty }</div>
                     <div className="cart-item-actions">
                         {/* buttons */}
