@@ -67,7 +67,7 @@ class CartItems extends React.Component{
                         <img src="https://cdn-icons-png.flaticon.com/512/56/56889.png" alt="decrease" className="action-icons"
                          onClick={()=> decreaseQuantity(product)}
                         />
-                        <img src="https://t4.ftcdn.net/jpg/01/90/89/15/240_F_190891550_N7uKp2aHE3mOc20dmtDytj7atgvbhdOu.jpg" alt="delete" className="action-icons" 
+                        <img src="https://t4.ftcdn.net/jpg/01/90/89/15/240_F_190891550_N7uKp2aHE3mOc20dmtDytj7atgvbhdOu.jpg" alt="delete" className="action-icons deleteCart " 
                          onClick={()=> OnDeleteProduct(product.id)}
                         />
                     </div>
