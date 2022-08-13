@@ -8,7 +8,7 @@ const CartItems = (props) => {
 
     const { product, increaseQuantity, decreaseQuantity, OnDeleteProduct } = props;
     return (
-        <div className="cart-item" style={{ border: '1px solid #777' }}>
+        <div className="cart-item" >
             <div className="left-block">
                 <img src={Cartimage} style={styles.image} />
             </div>
