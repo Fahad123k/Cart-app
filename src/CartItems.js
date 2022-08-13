@@ -47,6 +47,8 @@ class CartItems extends React.Component{
     render(){
         console.log('this.props',this.props)
         const {price,title,qty, Cartimage}=this.props.product;
+
+        const {product ,increaseQuantity,decreaseQuantity,OnDeleteProduct}=this.props;
         return (
             <div className="cart-item" style={{border: '1px solid #777'}}>
                 <div className="left-block">
@@ -60,13 +62,13 @@ class CartItems extends React.Component{
                         {/* buttons */}
                         {/* htttp://www.flatIcons.com */}
                         <img src="https://as2.ftcdn.net/v2/jpg/01/26/10/59/1000_F_126105961_6vHCTRX2cPOnQTBvx9OSAwRUapYTEmYA.jpg" alt="increase" className="action-icons" 
-                        onClick={()=> this.props.increaseQuantity(this.props.product)}
+                        onClick={()=> increaseQuantity(product)}
                         />
                         <img src="https://cdn-icons-png.flaticon.com/512/56/56889.png" alt="decrease" className="action-icons"
-                         onClick={()=> this.props.decreaseQuantity(this.props.product)}
+                         onClick={()=> decreaseQuantity(product)}
                         />
                         <img src="https://t4.ftcdn.net/jpg/01/90/89/15/240_F_190891550_N7uKp2aHE3mOc20dmtDytj7atgvbhdOu.jpg" alt="delete" className="action-icons" 
-                        
+                         onClick={()=> OnDeleteProduct(product.id)}
                         />
                     </div>
                 </div>

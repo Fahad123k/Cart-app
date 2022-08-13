@@ -28,7 +28,7 @@ class Cart extends React.Component {
                 {
                     
                     price:6999,
-                    title:"laptop",
+                    title:"Laptop",
                     qty:2,
                     Cartimage:'https://as1.ftcdn.net/v2/jpg/00/86/83/68/1000_F_86836872_WRScBX15NPeRRWjfzRZgkuzQCZZlpSzB.jpg',
                     id:3            
@@ -72,6 +72,19 @@ handleDecreaseQuantity=(product)=>{
     }
 }
 
+handleDeleteProduct=(id)=>{
+    // select product from this .state
+    const {products}=this.state;
+    // fillter products whose id not equalt to select id n return new array
+    const items=products.filter((items)=> items.id!==id);
+    // copy new products list from items
+    this.setState({
+        products:items
+    })
+
+}
+
+
   render () {
    const {products}=this.state;
     return (
@@ -84,6 +97,7 @@ handleDecreaseQuantity=(product)=>{
                     key={product.id}
                     increaseQuantity={this.handleIncreaseQuantity}
                     decreaseQuantity={this.handleDecreaseQuantity}
+                    OnDeleteProduct={this.handleDeleteProduct}
                     />
                 )
             })
