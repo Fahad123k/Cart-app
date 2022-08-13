@@ -42,35 +42,33 @@ class App extends React.Component {
     // console.log('hey increase qty',product);
     const { products } = this.state;
     const index = products.indexOf(product);
-    products[index].qty += 1;
     // console.log( products[index].qty)
     const max = products[index].qty;
-
-    if (max <= 5) {
+    
+    if(max===10) {return;};
+    
+    products[index].qty += 1;
       this.setState({
         products
       })
-    }
-    else {
-      window.alert("cant add more than 5 products")
-    }
+   
 
   }
   handleDecreaseQuantity = (product) => {
     // console.log('hey decrease qty',product);
     const { products } = this.state;
     const index = products.indexOf(product);
-    products[index].qty -= 1;
+   
     const min = products[index].qty;
-    if (min > 0) {
+    
+    if(min===0) {return;};
+    products[index].qty -= 1;
       this.setState({
         products
 
       })
-    }
-    else {
-      window.alert("Hey Your cart item will be empty")
-    }
+   
+  
   }
 
   handleDeleteProduct = (id) => {
@@ -84,11 +82,21 @@ class App extends React.Component {
     })
 
   }
+  getCartCount=()=> {
+    const{ products}=this.state;
+    let count=0;
+
+    products.forEach(product => {
+      count+=product.qty;
+    });
+
+    return count;
+  }
   render() {
     const { products}= this.state;
     return (
       <div className="App">
-        <Navbar />
+        <Navbar count={this.getCartCount()} />
         <Cart 
         products={products}
           increaseQuantity={this.handleIncreaseQuantity}
