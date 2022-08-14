@@ -4,7 +4,7 @@ const CartItems = (props) => {
 
 
 
-    const { price, title, qty, Cartimage } = props.product;
+    const { price, title, qty, Cartimage,offer } = props.product;
 
     const { product, increaseQuantity, decreaseQuantity, OnDeleteProduct } = props;
     return (
@@ -16,6 +16,7 @@ const CartItems = (props) => {
                 <div style={{ fontSize: 25, fontWeight: "bold" }}>{title}</div>
                 <div style={{ color: "#777" }}>Rs: {price}</div>
                 <div style={{ color: "#777" }}>Qty: {qty}</div>
+                <div style={{ color: "red",fontWeight: "bold" }}>Offer: {offer}%</div>
                 <div className="cart-item-actions">
                     {/* buttons */}
                     {/* htttp://www.flatIcons.com */}
